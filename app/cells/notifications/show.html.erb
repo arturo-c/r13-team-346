@@ -1,0 +1,19 @@
+<% if @user.present? %>
+  <% if @unread_notifications.count != 0 %>
+    <span class="notification-alert"><%= @unread_notifications.count %></span>
+  <% end %>
+  <%= link_to image_tag('icons/notification-icon.png'), {:controller => "application", :action => "viewed_notification"}, {:class => 'notification-button', :remote => true} %>
+  <ul class="notifications-list">
+    <% @notifications.each do |notification| %>
+      <li class="clearfix">
+        <%= image_tag notification.notifier_image, :class => 'left' %>
+        <strong><%= notification.notifier_handle %></strong>
+        <span clas="timeago">
+          <small><%= timeago_tag notification.notifier_date_time, :nojs => TRUE, :limit => 20.days.ago %></small>
+        </span>
+        <p><%= notification.message %> <%= notification.notifier_game %></p>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+

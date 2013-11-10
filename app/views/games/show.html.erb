@@ -1,8 +1,7 @@
 <div id="show-game">
   <div class="game clearfix">
     <div class="game-name-wrapper large-12 columns">
-      <% if @game.author_handle.present? %>
-        <span class="left"><%= image_tag @game.author_image %></span>
+        <span class="left"><%= image_tag @user.image %></span>
         <h4>
           <%= @game.name %>
           <div class="admin-actions right">
@@ -11,16 +10,6 @@
             <% end %>
           </div>
         </h4>
-      <% else %>
-        <% if user_signed_in? %>
-          <%= link_to 'Claim this game', '/games/' + @game.id + '/admin', :class => 'button small left' %>
-        <% else %>
-          <em data-tooltip class="has-tip" title="You must login with twitter to claim the game.">
-            <%= image_tag 'icons/question-icon.png' %>
-            <%= link_to 'Unknown user', '/auth/twitter', :class => 'has-tip', 'data-tooltip' => '', :title => 'You must login with twitter to claim this game as yours.' %>
-          </em>
-        <% end %>
-      <% end %>
     </div>
 
     <div id="game-content-area" class="large-8 columns">

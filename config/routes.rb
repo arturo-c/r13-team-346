@@ -30,6 +30,7 @@ Pugwarriors::Application.routes.draw do
   match '/games/:id/comments' => 'comments#create'
   match '/games/filter' => 'games#filter'
   match '/tweets/filter' => 'tweets#filter'
+  match '/application/viewed_notification' => 'application#viewed_notification'
   match '/tweets/get_new_tweets' => 'tweets#get_new_tweets'
   match '/auth/:provider/callback' => 'authentications#create'
 end

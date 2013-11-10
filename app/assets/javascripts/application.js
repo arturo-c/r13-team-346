@@ -32,6 +32,10 @@ $('.next-button').click(function(){
     return false;
 });
 
+$('.notification-button').click(function(){
+    $('.notifications-list').toggle();
+});
+
 $('.back-button').click(function(){
     $('#additional-information').hide();
     $('#tweet-information').show();

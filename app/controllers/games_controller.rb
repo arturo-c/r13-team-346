@@ -133,6 +133,7 @@ class GamesController < ApplicationController
   def join
     if current_user
       @game = Game.find(params[:id])
+      joined_notification
       respond_to do |format|
         if add_user_to_game
           format.html { redirect_to @game, notice: 'Joined game.'}
@@ -153,6 +154,7 @@ class GamesController < ApplicationController
   def leave
     if current_user
       @game = Game.find(params[:id])
+      leave_notification
       respond_to do |format|
         if remove_user_from_game
           format.html { redirect_to @game, notice: 'Left game.'}
@@ -165,14 +167,6 @@ class GamesController < ApplicationController
         end
       end
     end
-  end
-
-  def admin
-    @game = Game.find(params[:id])
-    @game.admin = current_user.twitter_id
-    add_user_to_game
-    @game.save
-    redirect_to games_url
   end
 
   def filter

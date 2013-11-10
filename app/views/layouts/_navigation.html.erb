@@ -13,6 +13,9 @@
         <li>
           <%= link_to 'Find a game', games_path %>
         </li>
+        <li>
+          <%= render_cell :notifications, :show, :user => current_user %>
+        </li>
 
         <% if !user_signed_in? %>
           <li><%= link_to 'Sign in with twitter', '/auth/twitter' %></li>
@@ -31,3 +34,4 @@
     </section>
   </ul>
 </nav>
+

@@ -59,16 +59,20 @@
       .large-10 { padding: 0; }
       input { margin: 0; }
     }
-    .comment-list {
-      li { list-style-type: none; background: #000; padding: 10px; border-bottom: 1px solid #333; @include box-shadow(#000);
-        img { margin-right: 10px;}
-        strong {}
-        p { margin: 0; }
-      }
-    }
+
   }
-
-
 }
+
+.comment-list, .notifications-list {
+  li { float: none !important; min-width: 300px; list-style-type: none; background: #000; padding: 10px; border-bottom: 1px solid #333; @include box-shadow(#000);
+    img { margin-right: 10px;}
+    strong {}
+    p { margin: 0; }
+  }
+}
+ul.notifications-list { display: none; position: absolute; z-index: 9999; right: 0;
+  li { background: #333; }
+}
+.notification-button { cursor: pointer; }
 
 
