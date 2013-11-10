@@ -3,6 +3,10 @@ class NotificationsController < ApplicationController
     @notification = Notification.where({ :flag_read => nil })
     @notification.flag_read = true
     @notification.save
-    respond do
+    respond_to do |format|
+      format.html
+      format.json { render :json => @notifications.to_json }
+      format.js
+    end
   end
 end
